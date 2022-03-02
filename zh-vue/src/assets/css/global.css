@@ -1,0 +1,19 @@
+/* 全局样式表 ,el元素都有一个同名class，可以直接设置*/
+html,body,#app{
+	/* 铺满 */
+    width: 100%;
+    height: 100%;
+    margin: 0;       /*清空默认8px，对齐*/
+    padding: 0;
+}
+
+.el-breadcrumb{
+    margin-bottom: 15px;
+}
+.el-table {
+   margin:15px 20px;
+}
+
+.ql-editor {
+    height: 500px !important;
+  }
