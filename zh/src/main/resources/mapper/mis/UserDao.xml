@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zbl.zh.mis.dao.UserDao">
+
+     <!-- 多表分页条件 ：复杂查询   resultType="map"   #{map.name} 取变量值   -->
+     <select id="daoQ1" resultType="map">
+       select * from user 
+       <if test="map.name != null and map.name!=''">
+        where user.username like concat('%',#{map.name},'%')
+       </if>
+     </select>
+  
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zbl.zh.mis.dao.HouseholdDao">
+    <select id="getByIdAllSameCommunity" resultType="map">
+        select h.id as id, h.household_name as householdName, h.household_phone as householdPhone, h.household_identify as householdIdentify, h.household_sex as householdSex, h.household_birth as householdBirth, h.household_is as householdIs, h.household_relation as householdRelation, h.household_native_place as householdNativePlace, h.household_hj_place as householdHjPlace, h.household_outlook as householdOutlook, h.household_veterans as householdVeterans, h.household_soldier_fam as householdSoldierFam, h.household_martyr_fam as householdMartyrFam, h.householder_id as householderId, h.community_id as communityId from household h where 
+        <if test="map.communityId!=''">
+            h.community_id = #{map.communityId}
+        </if>
+        <if test="map.householdName!=''">
+            and h.household_name like CONCAT('%',#{map.householdName},'%') 
+        </if>
+        group by h.id
+    </select>
+</mapper>
